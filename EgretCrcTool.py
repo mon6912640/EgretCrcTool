@@ -93,7 +93,8 @@ if __name__ == '__main__':
                 new_file_path = os.path.join(parent, file_name_without_ext + '_' + str(crc_value).lower() + ext)
                 if not os.path.exists(parent):
                     os.makedirs(parent)
-                shutil.copyfile(source_path, new_file_path)
+                if not os.path.exists(new_file_path):
+                    shutil.copyfile(source_path, new_file_path)
                 file_count += 1
     if resource_map:
         result_list = []
