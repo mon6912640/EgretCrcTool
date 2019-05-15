@@ -19,7 +19,7 @@ EgretCrcTool.exe --source xxx --output xxx
   
 -- EgretCrcTool.py
 > 编译的源文件，exe文件执行时候无需依赖，只作开源学习用途  
-> 如果有python环境，则可代替exe工具，通过python命令直接执行
+> 如果有python环境，则可代替exe工具，通过python命令直接执行（python 3.7）
 
 -- README.md
 > 说明文档
