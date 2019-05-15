@@ -3,8 +3,9 @@ import os
 import time
 import shutil
 import json
+import argparse
 
-from_path = 'D:/work/client/sanguoclient_branch/banshu_ios3/sanguoclient/resource'
+from_path = './source'
 to_path = './output'
 
 
@@ -58,6 +59,16 @@ def replace_url(p_map, p_url, p_crc_url):
 
 
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='帮助信息')
+    parser.add_argument('--source', type=str, default=from_path, help='需要压缩的源目录')
+    parser.add_argument('--output', type=str, default=to_path, help='输出的目录')
+    args = parser.parse_args()
+
+    print('source_path = ' + args.source)
+    print('output_path = ' + args.output)
+    from_path = args.source
+    to_path = args.output
+
     file_count = 0
     json_dict = ''
     start = time.time()
@@ -72,6 +83,8 @@ if __name__ == '__main__':
             file_name_without_ext, ext = os.path.splitext(file_name)  # 分解文件名的扩展名
             # print(file_name, file_name_without_ext, ext)
             if file_name == 'default.res.json':
+                if json_dict:
+                    continue
                 with open(source_path, 'r') as f:
                     json_dict = json.loads(f.read())
                     resource_list = json_dict['resources']
@@ -107,7 +120,6 @@ if __name__ == '__main__':
             os.makedirs(parent)
         with open(res_json_path, 'w', encoding='utf-8') as f:
             f.write(json_pack)
-
 
     # crc_value = cal_crc(from_path)
     # print(crc_value)
