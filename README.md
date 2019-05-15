@@ -18,7 +18,8 @@ EgretCrcTool.exe --source xxx --output xxx
 > 已经打包好的程序执行文件，无需其他文件依赖
   
 -- EgretCrcTool.py
-> 编译的源文件，exe文件执行时候无需依赖，只作开源学习用途
+> 编译的源文件，exe文件执行时候无需依赖，只作开源学习用途  
+> 如果有python环境，则可代替exe工具，通过python命令直接执行
 
 -- README.md
 > 说明文档
