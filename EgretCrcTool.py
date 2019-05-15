@@ -29,6 +29,7 @@ def cal_crc(p_file):
 
 
 temp_map = None
+resource_map = None
 
 
 def add_to_resource_map(p_url, p_crc_url):
@@ -72,10 +73,12 @@ if __name__ == '__main__':
     file_count = 0
     json_dict = ''
     start = time.time()
-    global resource_map
+
+    from_abs_path = os.path.abspath(from_path)
+    to_abs_path = os.path.abspath(to_path)
+    print(from_abs_path)
+    print(to_abs_path)
     for root, dirs, files in os.walk(from_path):
-        from_abs_path = os.path.abspath(from_path)
-        to_abs_path = os.path.abspath(to_path)
         for file_name in files:
             source_path = os.path.abspath(os.path.join(root, file_name))
             rel_path = os.path.relpath(source_path, from_abs_path)
