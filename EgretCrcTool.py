@@ -54,8 +54,8 @@ def add_to_resource_map(p_url, p_crc_url):
 
 
 def replace_url(p_map, p_url, p_crc_url):
-    obj = p_map[p_url]
-    if obj:
+    if p_url in p_map:
+        obj = p_map[p_url]
         obj['url'] = p_crc_url  # 替换url
 
 
